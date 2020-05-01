@@ -6,7 +6,12 @@
 package controller;
 
 import domain.DomainObject;
+import java.awt.Dimension;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
+import javax.swing.JFrame;
 import logic.*;
 
 /**
@@ -16,6 +21,7 @@ import logic.*;
 public class Controller {
 
     private static Controller instance;
+    private boolean defaultConfiguration;
 
     private Controller() {
 
@@ -26,6 +32,51 @@ public class Controller {
             instance = new Controller();
         }
         return instance;
+    }
+
+    public boolean getDefaultConfiguration() {
+        return defaultConfiguration;
+    }
+
+    public void setDefaultConfiguration(boolean defaultConfiguration) {
+        this.defaultConfiguration = defaultConfiguration;
+    }
+
+    public boolean isDefaultConfiguration() {
+        if (defaultConfiguration == true) {
+            return true;
+        }
+        return false;
+    }
+
+    public Properties readPropertiesFile() throws IOException {
+        FileInputStream in = new FileInputStream("db.properties");
+        Properties props = new Properties();
+        props.load(in);
+
+        return props;
+    }
+
+    public void writeIntoPropertiesFile(String port, String driver, String url, String user, String password) throws IOException {
+        FileInputStream in = new FileInputStream("conn.properties");
+        Properties props = new Properties();
+        props.load(in);
+
+        props.setProperty("port", port);
+        props.setProperty("driver", driver);
+        props.setProperty("url", url);
+        props.setProperty("user", user);
+        props.setProperty("password", password);
+    }
+
+    public void defaultPrepareForm(JFrame form, Dimension dimension) {
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        form.setPreferredSize(dimension);
+        form.pack();
+        form.setLocationRelativeTo(null);
+//        URL imageUrl = ClassLoader.getSystemResource("img/transportation.png");
+//        ImageIcon icon = new ImageIcon(imageUrl);
+//        form.setIconImage(icon.getImage());
     }
 
     public List<DomainObject> selectAllWorkers() throws Exception {
