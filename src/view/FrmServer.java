@@ -53,7 +53,6 @@ public class FrmServer extends javax.swing.JFrame {
         lblLogoTextSmaller = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
-        lblWelcome = new javax.swing.JLabel();
         lblConfig = new javax.swing.JLabel();
         btnDefault = new javax.swing.JButton();
         btnCustom = new javax.swing.JButton();
@@ -75,35 +74,39 @@ public class FrmServer extends javax.swing.JFrame {
         txtURL = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Server");
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 520));
+        setSize(new java.awt.Dimension(800, 520));
 
         leftPanel.setBackground(new java.awt.Color(251, 234, 235));
 
         lblLogo.setBackground(new java.awt.Color(47, 60, 126));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoLogin95px.png"))); // NOI18N
 
         lblLogoText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLogoText.setForeground(new java.awt.Color(47, 60, 126));
-        lblLogoText.setText("L O L A ' s");
+        lblLogoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogoText.setText("V E T E R I N A R S K A");
 
         lblLogoTextSmaller.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblLogoTextSmaller.setForeground(new java.awt.Color(47, 60, 126));
-        lblLogoTextSmaller.setText("Vet ambulance");
+        lblLogoTextSmaller.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogoTextSmaller.setText("A M B U L A N T A");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLogoText)
-                    .addComponent(lblLogoTextSmaller))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblLogoText, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLogoTextSmaller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,25 +131,45 @@ public class FrmServer extends javax.swing.JFrame {
             }
         });
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
-        lblWelcome.setText("Welcome!");
-
         lblConfig.setBackground(new java.awt.Color(47, 60, 126));
-        lblConfig.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblConfig.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblConfig.setForeground(new java.awt.Color(255, 255, 255));
-        lblConfig.setText("Configuration");
+        lblConfig.setText("Konfiguracija");
 
-        btnDefault.setBackground(new java.awt.Color(255, 255, 255));
-        btnDefault.setText("default");
+        btnDefault.setBackground(new java.awt.Color(47, 60, 127));
+        btnDefault.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnDefault.setForeground(new java.awt.Color(255, 255, 255));
+        btnDefault.setText("Podrazumevano");
+        btnDefault.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnDefault.setFocusPainted(false);
+        btnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnDefault.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDefaultActionPerformed(evt);
             }
         });
 
-        btnCustom.setBackground(new java.awt.Color(255, 255, 255));
-        btnCustom.setText("custom");
+        btnCustom.setBackground(new java.awt.Color(47, 60, 127));
+        btnCustom.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnCustom.setForeground(new java.awt.Color(255, 255, 255));
+        btnCustom.setText("Prilagođeno");
+        btnCustom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnCustom.setFocusPainted(false);
+        btnCustom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomActionPerformed(evt);
@@ -154,46 +177,70 @@ public class FrmServer extends javax.swing.JFrame {
         });
 
         lblPort.setBackground(new java.awt.Color(47, 60, 126));
-        lblPort.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblPort.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPort.setForeground(new java.awt.Color(255, 255, 255));
         lblPort.setText("Port");
         lblPort.setBorder(null);
 
         lblDriver.setBackground(new java.awt.Color(47, 60, 126));
-        lblDriver.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblDriver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDriver.setForeground(new java.awt.Color(255, 255, 255));
         lblDriver.setText("Driver");
         lblDriver.setBorder(null);
 
         lblURL.setBackground(new java.awt.Color(47, 60, 126));
-        lblURL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblURL.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblURL.setForeground(new java.awt.Color(255, 255, 255));
         lblURL.setText("URL");
         lblURL.setBorder(null);
 
         lblUsername.setBackground(new java.awt.Color(47, 60, 126));
-        lblUsername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("Username");
         lblUsername.setBorder(null);
 
         lblPassword.setBackground(new java.awt.Color(47, 60, 126));
-        lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
         lblPassword.setBorder(null);
 
-        btnConnect.setBackground(new java.awt.Color(255, 255, 255));
-        btnConnect.setText("connect");
+        btnConnect.setBackground(new java.awt.Color(47, 60, 127));
+        btnConnect.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnConnect.setForeground(new java.awt.Color(255, 255, 255));
+        btnConnect.setText("Poveži se");
+        btnConnect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnConnect.setEnabled(false);
+        btnConnect.setFocusPainted(false);
+        btnConnect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConnectActionPerformed(evt);
             }
         });
 
-        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancel.setText("cancel");
+        btnCancel.setBackground(new java.awt.Color(47, 60, 127));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setText("Odustani");
+        btnCancel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnCancel.setFocusPainted(false);
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -201,29 +248,44 @@ public class FrmServer extends javax.swing.JFrame {
         });
 
         txtPort.setBackground(new java.awt.Color(47, 60, 126));
+        txtPort.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtPort.setForeground(new java.awt.Color(255, 255, 255));
         txtPort.setBorder(null);
 
         txtDriver.setBackground(new java.awt.Color(47, 60, 126));
+        txtDriver.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtDriver.setForeground(new java.awt.Color(255, 255, 255));
         txtDriver.setBorder(null);
 
         txtURL.setBackground(new java.awt.Color(47, 60, 126));
+        txtURL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtURL.setForeground(new java.awt.Color(255, 255, 255));
         txtURL.setBorder(null);
 
         txtUsername.setBackground(new java.awt.Color(47, 60, 126));
+        txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         txtUsername.setBorder(null);
 
         txtPassword.setBackground(new java.awt.Color(47, 60, 126));
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(null);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Dobrodošli!");
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblExit)
+                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, rightPanelLayout.createSequentialGroup()
@@ -233,63 +295,57 @@ public class FrmServer extends javax.swing.JFrame {
                                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblConfig))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
                                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(rightPanelLayout.createSequentialGroup()
-                                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 42, Short.MAX_VALUE))
-                                    .addGroup(rightPanelLayout.createSequentialGroup()
-                                        .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(txtPassword)
+                                    .addComponent(jSeparator6)))
+                            .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addComponent(lblConfig)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                                .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
+                                .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                                    .addComponent(txtPort)
-                                    .addComponent(jSeparator2)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                                     .addComponent(txtURL, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtDriver, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtDriver, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtPort, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator4)))))
                     .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblWelcome)
-                .addGap(119, 119, 119)
-                .addComponent(lblExit)
-                .addContainerGap())
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rightPanelLayout.createSequentialGroup()
-                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblExit))
-                    .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addComponent(lblExit)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel1)
+                .addGap(52, 52, 52)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblConfig, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPort, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -321,9 +377,9 @@ public class FrmServer extends javax.swing.JFrame {
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -408,12 +464,13 @@ public class FrmServer extends javax.swing.JFrame {
         try {
             if (!Controller.getInstance().isDefaultConfiguration()) {
                 Controller.getInstance().writeIntoPropertiesFile(txtPort.getText(), txtDriver.getText(),
-                    txtURL.getText(), txtUsername.getText(), txtPassword.getText());
+                        txtURL.getText(), txtUsername.getText(), txtPassword.getText());
             }
 
             new ServerThread().start();
             JOptionPane.showMessageDialog(this.getContentPane(), "Startovan server",
-                "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+                    "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            setState(this.ICONIFIED);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this.getContentPane(), "Problems with connecting!", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -423,13 +480,51 @@ public class FrmServer extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
-   
+    private void btnGroupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseEntered
+        if (evt.getSource() == btnDefault) {
+            btnDefault.setContentAreaFilled(true);
+            btnDefault.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnCustom) {
+            btnCustom.setContentAreaFilled(true);
+            btnCustom.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnCancel) {
+            btnCancel.setContentAreaFilled(true);
+            btnCancel.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnConnect) {
+            btnConnect.setContentAreaFilled(true);
+            btnConnect.setBackground(new Color(26, 36, 87));
+        }
+    }//GEN-LAST:event_btnGroupMouseEntered
+
+    private void btnGroupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseExited
+        if (evt.getSource() == btnDefault) {
+            btnDefault.setContentAreaFilled(true);
+            btnDefault.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnCustom) {
+            btnCustom.setContentAreaFilled(true);
+            btnCustom.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnCancel) {
+            btnCancel.setContentAreaFilled(true);
+            btnCancel.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnConnect) {
+            btnConnect.setContentAreaFilled(true);
+            btnConnect.setBackground(new Color(47, 60, 127));
+        }
+    }//GEN-LAST:event_btnGroupMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConnect;
     private javax.swing.JButton btnCustom;
     private javax.swing.JButton btnDefault;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -446,7 +541,6 @@ public class FrmServer extends javax.swing.JFrame {
     private javax.swing.JTextField lblPort;
     private javax.swing.JTextField lblURL;
     private javax.swing.JTextField lblUsername;
-    private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JTextField txtDriver;
