@@ -75,6 +75,7 @@ public class FrmServer extends javax.swing.JFrame {
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Server");
@@ -83,6 +84,7 @@ public class FrmServer extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 520));
 
         leftPanel.setBackground(new java.awt.Color(251, 234, 235));
+        leftPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 60, 127)));
 
         lblLogo.setBackground(new java.awt.Color(47, 60, 126));
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -121,6 +123,7 @@ public class FrmServer extends javax.swing.JFrame {
         );
 
         rightPanel.setBackground(new java.awt.Color(47, 60, 126));
+        rightPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 60, 127)));
 
         lblExit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblExit.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,6 +280,11 @@ public class FrmServer extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Dobrodošli!");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("© Ana Kljajić 2020");
+
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
@@ -305,7 +313,7 @@ public class FrmServer extends javax.swing.JFrame {
                                     .addComponent(jSeparator6)))
                             .addGroup(rightPanelLayout.createSequentialGroup()
                                 .addComponent(lblConfig)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                                 .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -330,6 +338,10 @@ public class FrmServer extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18))
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,7 +391,9 @@ public class FrmServer extends javax.swing.JFrame {
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -525,6 +539,7 @@ public class FrmServer extends javax.swing.JFrame {
     private javax.swing.JButton btnCustom;
     private javax.swing.JButton btnDefault;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
