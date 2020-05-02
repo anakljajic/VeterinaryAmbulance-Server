@@ -54,14 +54,14 @@ public class FrmServer extends javax.swing.JFrame {
         rightPanel = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblConfig = new javax.swing.JLabel();
         btnDefault = new javax.swing.JButton();
         btnCustom = new javax.swing.JButton();
-        txtPort = new javax.swing.JTextField();
-        txtDriver = new javax.swing.JTextField();
-        txtURL = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
+        lblPort = new javax.swing.JTextField();
+        lblDriver = new javax.swing.JTextField();
+        lblURL = new javax.swing.JTextField();
+        lblUsername = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JTextField();
         btnConnect = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -70,6 +70,11 @@ public class FrmServer extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
+        txtPort = new javax.swing.JTextField();
+        txtDriver = new javax.swing.JTextField();
+        txtURL = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Server");
@@ -127,11 +132,12 @@ public class FrmServer extends javax.swing.JFrame {
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Welcome!");
 
-        jLabel1.setBackground(new java.awt.Color(47, 60, 126));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Configuration");
+        lblConfig.setBackground(new java.awt.Color(47, 60, 126));
+        lblConfig.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblConfig.setForeground(new java.awt.Color(255, 255, 255));
+        lblConfig.setText("Configuration");
 
+        btnDefault.setBackground(new java.awt.Color(255, 255, 255));
         btnDefault.setText("default");
         btnDefault.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +145,7 @@ public class FrmServer extends javax.swing.JFrame {
             }
         });
 
+        btnCustom.setBackground(new java.awt.Color(255, 255, 255));
         btnCustom.setText("custom");
         btnCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,36 +153,37 @@ public class FrmServer extends javax.swing.JFrame {
             }
         });
 
-        txtPort.setBackground(new java.awt.Color(47, 60, 126));
-        txtPort.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtPort.setForeground(new java.awt.Color(255, 255, 255));
-        txtPort.setText("Server port");
-        txtPort.setBorder(null);
+        lblPort.setBackground(new java.awt.Color(47, 60, 126));
+        lblPort.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblPort.setForeground(new java.awt.Color(255, 255, 255));
+        lblPort.setText("Port");
+        lblPort.setBorder(null);
 
-        txtDriver.setBackground(new java.awt.Color(47, 60, 126));
-        txtDriver.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtDriver.setForeground(new java.awt.Color(255, 255, 255));
-        txtDriver.setText("Driver");
-        txtDriver.setBorder(null);
+        lblDriver.setBackground(new java.awt.Color(47, 60, 126));
+        lblDriver.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblDriver.setForeground(new java.awt.Color(255, 255, 255));
+        lblDriver.setText("Driver");
+        lblDriver.setBorder(null);
 
-        txtURL.setBackground(new java.awt.Color(47, 60, 126));
-        txtURL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtURL.setForeground(new java.awt.Color(255, 255, 255));
-        txtURL.setText("URL");
-        txtURL.setBorder(null);
+        lblURL.setBackground(new java.awt.Color(47, 60, 126));
+        lblURL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblURL.setForeground(new java.awt.Color(255, 255, 255));
+        lblURL.setText("URL");
+        lblURL.setBorder(null);
 
-        txtUsername.setBackground(new java.awt.Color(47, 60, 126));
-        txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
-        txtUsername.setText("Username");
-        txtUsername.setBorder(null);
+        lblUsername.setBackground(new java.awt.Color(47, 60, 126));
+        lblUsername.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Username");
+        lblUsername.setBorder(null);
 
-        txtPassword.setBackground(new java.awt.Color(47, 60, 126));
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setText("Password");
-        txtPassword.setBorder(null);
+        lblPassword.setBackground(new java.awt.Color(47, 60, 126));
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Password");
+        lblPassword.setBorder(null);
 
+        btnConnect.setBackground(new java.awt.Color(255, 255, 255));
         btnConnect.setText("connect");
         btnConnect.setEnabled(false);
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +192,7 @@ public class FrmServer extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,37 +200,70 @@ public class FrmServer extends javax.swing.JFrame {
             }
         });
 
+        txtPort.setBackground(new java.awt.Color(47, 60, 126));
+        txtPort.setForeground(new java.awt.Color(255, 255, 255));
+        txtPort.setBorder(null);
+
+        txtDriver.setBackground(new java.awt.Color(47, 60, 126));
+        txtDriver.setForeground(new java.awt.Color(255, 255, 255));
+        txtDriver.setBorder(null);
+
+        txtURL.setBackground(new java.awt.Color(47, 60, 126));
+        txtURL.setForeground(new java.awt.Color(255, 255, 255));
+        txtURL.setBorder(null);
+
+        txtUsername.setBackground(new java.awt.Color(47, 60, 126));
+        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsername.setBorder(null);
+
+        txtPassword.setBackground(new java.awt.Color(47, 60, 126));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(null);
+
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, rightPanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblConfig))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(rightPanelLayout.createSequentialGroup()
+                                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(rightPanelLayout.createSequentialGroup()
+                                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 42, Short.MAX_VALUE))
+                                    .addGroup(rightPanelLayout.createSequentialGroup()
+                                        .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                                    .addComponent(txtPort)
+                                    .addComponent(jSeparator2)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtURL, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtDriver, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(rightPanelLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancel)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnConnect))
-                    .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator6)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator5)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4)
-                            .addComponent(txtURL)
-                            .addComponent(jSeparator3)
-                            .addComponent(jSeparator2)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPort, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, rightPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                                .addComponent(btnDefault)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCustom))
-                            .addComponent(txtDriver))))
+                        .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,38 +282,48 @@ public class FrmServer extends javax.swing.JFrame {
                     .addGroup(rightPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDefault)
-                    .addComponent(btnCustom)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblConfig, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPort, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtURL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblURL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtURL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConnect)
-                    .addComponent(btnCancel))
-                .addGap(51, 51, 51))
+                    .addComponent(btnConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(87, 87, 87))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -319,6 +371,7 @@ public class FrmServer extends javax.swing.JFrame {
             jSeparator3.setBackground(new Color(44, 62, 80));
             jSeparator4.setBackground(new Color(44, 62, 80));
             jSeparator5.setBackground(new Color(44, 62, 80));
+            jSeparator6.setBackground(new Color(44, 62, 80));
 
             btnConnect.setEnabled(true);
 
@@ -341,6 +394,7 @@ public class FrmServer extends javax.swing.JFrame {
         jSeparator4.setBackground(new Color(255, 255, 255));
         txtPassword.setEditable(true);
         jSeparator5.setBackground(new Color(255, 255, 255));
+        jSeparator6.setBackground(new Color(255, 255, 255));
         btnConnect.setEnabled(true);
 
         txtPort.setText("");
@@ -354,12 +408,12 @@ public class FrmServer extends javax.swing.JFrame {
         try {
             if (!Controller.getInstance().isDefaultConfiguration()) {
                 Controller.getInstance().writeIntoPropertiesFile(txtPort.getText(), txtDriver.getText(),
-                        txtURL.getText(), txtUsername.getText(), txtPassword.getText());
+                    txtURL.getText(), txtUsername.getText(), txtPassword.getText());
             }
 
             new ServerThread().start();
             JOptionPane.showMessageDialog(this.getContentPane(), "Startovan server",
-                    "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+                "Uspeh", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this.getContentPane(), "Problems with connecting!", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -369,42 +423,29 @@ public class FrmServer extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void startServer() {
-        try {
-            if (serverThread == null || !serverThread.isAlive()) {
-                serverThread = new ServerThread();
-                serverThread.start();
-
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    private void stopServer() {
-        if (serverThread != null || serverThread.isAlive()) {
-            serverThread.stop();
-
-        }
-    }
-
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConnect;
     private javax.swing.JButton btnCustom;
     private javax.swing.JButton btnDefault;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JLabel lblConfig;
+    private javax.swing.JTextField lblDriver;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogoText;
     private javax.swing.JLabel lblLogoTextSmaller;
+    private javax.swing.JTextField lblPassword;
+    private javax.swing.JTextField lblPort;
+    private javax.swing.JTextField lblURL;
+    private javax.swing.JTextField lblUsername;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel rightPanel;

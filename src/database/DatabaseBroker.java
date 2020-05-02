@@ -5,6 +5,7 @@
  */
 package database;
 
+import controller.Controller;
 import domain.DomainObject;
 import domain.Karton;
 import domain.Klijent;
@@ -42,13 +43,24 @@ public class DatabaseBroker {
             FileInputStream in = new FileInputStream("db.properties");
             Properties props = new Properties();
             props.load(in);
-            String driver = props.getProperty("driver");
-            String url = props.getProperty("url");
-            String user = props.getProperty("user");
-            String password = props.getProperty("password");
+
+            String driver = props.getProperty("default_driver");
+            String url = props.getProperty("default_url");
+            String user = props.getProperty("default_user");
+            String password = props.getProperty("default_password");
+
+            if (!Controller.getInstance().isDefaultConfiguration()) {
+
+                driver = props.getProperty("driver");
+                url = props.getProperty("url");
+                user = props.getProperty("user");
+                password = props.getProperty("password");
+
+            }
 
             Class.forName(driver);
 
+            System.out.println(url + " , " + user + " , " + password);
             connection = DriverManager.getConnection(url, user, password);
             connection.setAutoCommit(false);
             System.out.println("Uspesno uspostavljena konekcija sa bazom!");
@@ -463,7 +475,6 @@ public class DatabaseBroker {
 
     }
 
-
     public DomainObject updateDomainObject(DomainObject odo) throws Exception {
         try {
             String query = "UPDATE " + odo.getTableName() + " SET " + odo.getAttributeNamesForUpdate() + " WHERE " + odo.getObjectIDName() + " = " + odo.getObjectIDValue() + " ";
@@ -477,7 +488,6 @@ public class DatabaseBroker {
         }
         return odo;
     }
-
 
     public void insertListDomainObject(List<DomainObject> listOdo) throws Exception {
         for (DomainObject odo : listOdo) {
@@ -502,7 +512,6 @@ public class DatabaseBroker {
 
         }
     }
-
 
     public DomainObject generateDomainObject(DomainObject odo) throws Exception {
         try {
@@ -542,7 +551,6 @@ public class DatabaseBroker {
             throw new Exception();
         }
     }
-
 
     public DomainObject insertDomainObject(DomainObject odo) throws Exception {
         try {
