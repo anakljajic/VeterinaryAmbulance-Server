@@ -175,17 +175,18 @@ public class DatabaseBroker {
             List<DomainObject> klijenti = new ArrayList<>();
 
             while (rs.next()) {
-                Klijent k = new Klijent();
-                k.setAdresa(rs.getString("Adresa"));
-                k.setMesto(rs.getString("Mesto"));
-                k.setTelefon(rs.getString("Telefon"));
-                k.setIme(rs.getString("Ime"));
-                k.setPrezime(rs.getString("Prezime"));
-                k.setKlijentID(rs.getLong("KlijentID"));
-                k.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
-                klijenti.add(k);
+                
+                    Klijent k = new Klijent();
+                    k.setAdresa(rs.getString("Adresa"));
+                    k.setMesto(rs.getString("Mesto"));
+                    k.setTelefon(rs.getString("Telefon"));
+                    k.setIme(rs.getString("Ime"));
+                    k.setPrezime(rs.getString("Prezime"));
+                    k.setKlijentID(rs.getLong("KlijentID"));
+                    k.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
+                    klijenti.add(k);
+                
             }
-//            System.out.println("Uspesno kreiran " + odo.getTableName() + " u bazi!");
             return klijenti;
         } catch (Exception ex) {
             ex.printStackTrace();
