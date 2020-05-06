@@ -119,7 +119,7 @@ public class DatabaseBroker {
                 r.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
                 r.setAdresa(rs.getString("Adresa"));
                 r.setTelefon(rs.getString("Telefon"));
-                r.setAdministrator(rs.getInt("Administrator"));
+                r.setAdministrator(rs.getBoolean("Administrator"));
                 r.setKorisnikoIme(rs.getString("KorisnickoIme"));
                 r.setLozinka(rs.getString("Lozinka"));
                 r.setRadnikID(rs.getLong("RadnikID"));
@@ -151,7 +151,7 @@ public class DatabaseBroker {
                 r.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
                 r.setAdresa(rs.getString("Adresa"));
                 r.setTelefon(rs.getString("Telefon"));
-                r.setAdministrator(rs.getInt("Administrator"));
+                r.setAdministrator(rs.getBoolean("Administrator"));
                 r.setKorisnikoIme(rs.getString("KorisnickoIme"));
                 r.setLozinka(rs.getString("Lozinka"));
                 r.setRadnikID(rs.getLong("RadnikID"));
@@ -276,7 +276,7 @@ public class DatabaseBroker {
                 r.setDatumRodjenja(new Date(rs.getDate("r.DatumRodjenja").getTime()));
                 r.setAdresa(rs.getString("r.Adresa"));
                 r.setTelefon(rs.getString("r.Telefon"));
-                r.setAdministrator(rs.getInt("r.Administrator"));
+                r.setAdministrator(rs.getBoolean("r.Administrator"));
                 r.setKorisnikoIme(rs.getString("r.KorisnickoIme"));
                 r.setLozinka(rs.getString("r.Lozinka"));
 
@@ -384,7 +384,7 @@ public class DatabaseBroker {
                 r.setDatumRodjenja(new Date(rs.getDate("r.DatumRodjenja").getTime()));
                 r.setAdresa(rs.getString("r.Adresa"));
                 r.setTelefon(rs.getString("r.Telefon"));
-                r.setAdministrator(rs.getInt("r.Administrator"));
+                r.setAdministrator(rs.getBoolean("r.Administrator"));
                 r.setKorisnikoIme(rs.getString("r.KorisnickoIme"));
                 r.setLozinka(rs.getString("r.Lozinka"));
 
@@ -457,7 +457,7 @@ public class DatabaseBroker {
 
                 Radnik r = new Radnik();
                 r.setRadnikID(rs.getLong("RadnikID"));
-                r.setAdministrator(rs.getInt("Administrator"));
+                r.setAdministrator(rs.getBoolean("Administrator"));
                 r.setAdresa(rs.getString("Adresa"));
                 r.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
                 r.setIme(rs.getString("Ime"));
@@ -593,7 +593,7 @@ public class DatabaseBroker {
                 r.setDatumRodjenja(new Date(rs.getDate("r.DatumRodjenja").getTime()));
                 r.setAdresa(rs.getString("r.Adresa"));
                 r.setTelefon(rs.getString("r.Telefon"));
-                r.setAdministrator(rs.getInt("r.Administrator"));
+                r.setAdministrator(rs.getBoolean("r.Administrator"));
                 r.setKorisnikoIme(rs.getString("r.KorisnickoIme"));
                 r.setLozinka(rs.getString("r.Lozinka"));
 
