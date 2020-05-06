@@ -180,8 +180,20 @@ public class Controller {
         return so.getListDomainObject();
     }
 
+    public List<DomainObject> selectAllBillsFromDate(String date) throws Exception {
+        SystemOperation so = new SOSelectAllBillsFromDate(date);
+        so.execute();
+        return so.getListDomainObject();
+    }
+
     public void deleteDomainObject(DomainObject odo) throws Exception {
         SystemOperation so = new SODeleteDomainObject(odo);
         so.execute();
+    }
+
+    public DomainObject setStornoBill(DomainObject odo) throws Exception {
+        SystemOperation so = new SOSetStornoBill(odo);
+        so.execute();
+        return so.getDomainObject();
     }
 }

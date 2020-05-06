@@ -175,17 +175,17 @@ public class DatabaseBroker {
             List<DomainObject> klijenti = new ArrayList<>();
 
             while (rs.next()) {
-                
-                    Klijent k = new Klijent();
-                    k.setAdresa(rs.getString("Adresa"));
-                    k.setMesto(rs.getString("Mesto"));
-                    k.setTelefon(rs.getString("Telefon"));
-                    k.setIme(rs.getString("Ime"));
-                    k.setPrezime(rs.getString("Prezime"));
-                    k.setKlijentID(rs.getLong("KlijentID"));
-                    k.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
-                    klijenti.add(k);
-                
+
+                Klijent k = new Klijent();
+                k.setAdresa(rs.getString("Adresa"));
+                k.setMesto(rs.getString("Mesto"));
+                k.setTelefon(rs.getString("Telefon"));
+                k.setIme(rs.getString("Ime"));
+                k.setPrezime(rs.getString("Prezime"));
+                k.setKlijentID(rs.getLong("KlijentID"));
+                k.setDatumRodjenja(new Date(rs.getDate("DatumRodjenja").getTime()));
+                klijenti.add(k);
+
             }
             return klijenti;
         } catch (Exception ex) {
@@ -351,6 +351,74 @@ public class DatabaseBroker {
     public List<DomainObject> selectAllBills() throws Exception {
         try {
             String upit = "SELECT ra.RacunID, ra.UkupnaCenaSaPorezom, ra.UkupnaCenaBezPoreza, ra.Porez, ra.Obradjen, ra.Storniran, ra.RadnikID, ra.KartonID, ra.DatumKreiranja, r.RadnikID, r.Ime, r.Prezime, r.DatumRodjenja, r.Adresa, r.Telefon, r.Administrator, r.KorisnickoIme, r.Lozinka, ka.KartonID, ka.DatumKreiranja, ka.Napomena, ka.RadnikID, ka.ZivotinjaID, z.ZivotinjaID, z.Ime, z.Rasa, z.Boja, z.Pol, z.DatumRodjenja, z.KlijentID, z.Vrsta, k.KlijentID, k.Ime, k.Prezime, k.DatumRodjenja, k.Adresa, k.Mesto, k.Telefon FROM racun ra JOIN karton ka ON (ra.KartonID=ka.KartonID) JOIN radnik r ON (ra.RadnikID = r.RadnikID) JOIN zivotinja z ON (ka.ZivotinjaID = z.ZivotinjaID) JOIN klijent k ON (z.KlijentID=k.KlijentID)";
+            System.out.println(upit);
+
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(upit);
+            List<DomainObject> racuni = new ArrayList<>();
+
+            while (rs.next()) {
+                Klijent k = new Klijent();
+                k.setAdresa(rs.getString("k.Adresa"));
+                k.setMesto(rs.getString("k.Mesto"));
+                k.setTelefon(rs.getString("k.Telefon"));
+                k.setIme(rs.getString("k.Ime"));
+                k.setPrezime(rs.getString("k.Prezime"));
+                k.setKlijentID(rs.getLong("k.KlijentID"));
+                k.setDatumRodjenja(new Date(rs.getDate("k.DatumRodjenja").getTime()));
+
+                Zivotinja z = new Zivotinja();
+                z.setKlijent(k);
+                z.setZivotinjaID(rs.getLong("z.ZivotinjaID"));
+                z.setIme(rs.getString("z.Ime"));
+                z.setBoja(rs.getString("z.Boja"));
+                z.setRasa(rs.getString("z.Rasa"));
+                z.setPol(rs.getString("z.Pol"));
+                z.setVrsta(rs.getString("z.Vrsta"));
+                z.setDatumRodjenja(new Date(rs.getDate("z.DatumRodjenja").getTime()));
+
+                Radnik r = new Radnik();
+                r.setRadnikID(rs.getLong("r.RadnikID"));
+                r.setIme(rs.getString("r.Ime"));
+                r.setPrezime(rs.getString("r.Prezime"));
+                r.setDatumRodjenja(new Date(rs.getDate("r.DatumRodjenja").getTime()));
+                r.setAdresa(rs.getString("r.Adresa"));
+                r.setTelefon(rs.getString("r.Telefon"));
+                r.setAdministrator(rs.getBoolean("r.Administrator"));
+                r.setKorisnikoIme(rs.getString("r.KorisnickoIme"));
+                r.setLozinka(rs.getString("r.Lozinka"));
+
+                Karton ka = new Karton();
+                ka.setKartonID(rs.getLong("ka.KartonID"));
+                ka.setDatumKreiranja(new Date(rs.getDate("ka.DatumKreiranja").getTime()));
+                ka.setNapomena(rs.getString("ka.Napomena"));
+                ka.setRadnik(r);
+                ka.setZivotinja(z);
+
+                Racun ra = new Racun();
+                ra.setRacunID(rs.getLong("ra.RacunID"));
+                ra.setDatumKreiranja(new Date(rs.getDate("ra.DatumKreiranja").getTime()));
+                ra.setKarton(ka);
+                ra.setObradjen(rs.getBoolean("ra.Obradjen"));
+                ra.setPorez(rs.getBigDecimal("ra.Porez"));
+                ra.setStorniran(rs.getBoolean("ra.Storniran"));
+                ra.setUkupnaCenaBezPoreza(rs.getBigDecimal("ra.UkupnaCenaBezPoreza"));
+                ra.setUkupnaCenaSaPorezom(rs.getBigDecimal("ra.UkupnaCenaSaPorezom"));
+                ra.setRadnik(r);
+                racuni.add(ra);
+
+            }
+            return racuni;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception();
+        }
+    }
+
+    public List<DomainObject> selectAllBillsFromDate(String date) throws Exception {
+        try {
+            String upit = "SELECT ra.RacunID, ra.UkupnaCenaSaPorezom, ra.UkupnaCenaBezPoreza, ra.Porez, ra.Obradjen, ra.Storniran, ra.RadnikID, ra.KartonID, ra.DatumKreiranja, r.RadnikID, r.Ime, r.Prezime, r.DatumRodjenja, r.Adresa, r.Telefon, r.Administrator, r.KorisnickoIme, r.Lozinka, ka.KartonID, ka.DatumKreiranja, ka.Napomena, ka.RadnikID, ka.ZivotinjaID, z.ZivotinjaID, z.Ime, z.Rasa, z.Boja, z.Pol, z.DatumRodjenja, z.KlijentID, z.Vrsta, k.KlijentID, k.Ime, k.Prezime, k.DatumRodjenja, k.Adresa, k.Mesto, k.Telefon FROM racun ra JOIN karton ka ON (ra.KartonID=ka.KartonID) JOIN radnik r ON (ra.RadnikID = r.RadnikID) JOIN zivotinja z ON (ka.ZivotinjaID = z.ZivotinjaID) JOIN klijent k ON (z.KlijentID=k.KlijentID) WHERE ra.DatumKreiranja > '" + date + "'";
             System.out.println(upit);
 
             Statement statement = connection.createStatement();
@@ -706,5 +774,19 @@ public class DatabaseBroker {
             ex.printStackTrace();
             throw new Exception();
         }
+    }
+
+    public DomainObject setStornoBill(DomainObject odo) throws Exception {
+        try {
+            String query = "UPDATE " + odo.getTableName() + " SET Storniran=1 WHERE " + odo.getObjectIDName() + " = " + odo.getObjectIDValue() + " ";
+            System.out.println(query);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception();
+        }
+        return odo;
     }
 }

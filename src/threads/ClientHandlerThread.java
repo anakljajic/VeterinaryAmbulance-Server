@@ -92,6 +92,12 @@ public class ClientHandlerThread extends Thread {
                     case Operation.OPERATION_SELECT_ALL_TAXES:
                         response = operationSelectAllTaxes(request);
                         break;
+                    case Operation.OPERATION_SET_STORNO_BILL:
+                        response = operationSetStornoBill(request);
+                        break;
+                    case Operation.OPERATION_SEARCH_BILL_WITH_CRITERIA:
+                        response = operationSearchBillWithCriteria(request);
+                        break;
                 }
                 sendResponse(response);
             } catch (Exception ex) {
@@ -373,6 +379,35 @@ public class ClientHandlerThread extends Thread {
             response = new ResponseObject();
             List<DomainObject> pdv = Controller.getInstance().selectAllTaxes();
             response.setData(pdv);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.setException(ex);
+        }
+        return response;
+    }
+
+    private ResponseObject operationSetStornoBill(RequestObject request) {
+        ResponseObject response = null;
+        DomainObject odo = (DomainObject) request.getData();
+
+        try {
+            response = new ResponseObject();
+            Controller.getInstance().setStornoBill(odo);
+            response.setData(odo);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.setException(ex);
+        }
+        return response;
+    }
+
+    private ResponseObject operationSearchBillWithCriteria(RequestObject request) {
+        ResponseObject response = null;
+        String criteria = (String) request.getData();
+        try {
+            response = new ResponseObject();
+            List<DomainObject> racun = Controller.getInstance().selectAllBillsFromDate(criteria);
+            response.setData(racun);
         } catch (Exception ex) {
             ex.printStackTrace();
             response.setException(ex);
