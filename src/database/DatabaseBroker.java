@@ -789,4 +789,33 @@ public class DatabaseBroker {
         }
         return odo;
     }
+
+    public Racun saveBillWithItems(Racun racun) throws Exception {
+
+        try {
+            String query = "UPDATE " + racun.getTableName() + " SET " + racun.getAttributeNamesForUpdate() + " WHERE " + racun.getObjectIDName() + " = " + racun.getObjectIDValue() + " ";
+            System.out.println(query);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+
+            for (StavkaRacuna stavka : racun.getStavkeRacuna()) {
+                String upit = "INSERT INTO " + stavka.getTableName() + " (" + stavka.getAttributeNamesForInsert() + ") VALUES (" + stavka.getAttributeValuesForInsert() + ")";
+                System.out.println(upit);
+                statement.executeUpdate(upit, Statement.RETURN_GENERATED_KEYS);
+
+                if (stavka.isAutoincrement()) {
+                    ResultSet rs = statement.getGeneratedKeys();
+                    if (rs.next()) {
+                        stavka.setObjectId(rs.getLong(1));
+                    }
+                }
+
+            }
+            System.out.println("Uspesno kreiran " + racun.getTableName() + " u bazi!");
+            return racun;
+        } catch (Exception ex) {
+            Logger.getLogger(DatabaseBroker.class.getName()).log(Level.SEVERE, null, ex);
+            throw new Exception();
+        }
+    }
 }

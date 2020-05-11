@@ -7,6 +7,7 @@ package threads;
 
 import controller.Controller;
 import domain.DomainObject;
+import domain.Racun;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -97,6 +98,9 @@ public class ClientHandlerThread extends Thread {
                         break;
                     case Operation.OPERATION_SEARCH_BILL_WITH_CRITERIA:
                         response = operationSearchBillWithCriteria(request);
+                        break;
+                    case Operation.OPERATION_SAVE_BILL_AND_BILL_ITEMS:
+                        response = operationSaveBillWithItems(request);
                         break;
                 }
                 sendResponse(response);
@@ -407,6 +411,21 @@ public class ClientHandlerThread extends Thread {
         try {
             response = new ResponseObject();
             List<DomainObject> racun = Controller.getInstance().selectAllBillsFromDate(criteria);
+            response.setData(racun);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.setException(ex);
+        }
+        return response;
+    }
+
+    private ResponseObject operationSaveBillWithItems(RequestObject request) {
+        ResponseObject response = null;
+        Racun racun = (Racun) request.getData();
+
+        try {
+            response = new ResponseObject();
+            racun = Controller.getInstance().saveBillWithItems(racun);
             response.setData(racun);
         } catch (Exception ex) {
             ex.printStackTrace();

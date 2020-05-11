@@ -6,6 +6,7 @@
 package controller;
 
 import domain.DomainObject;
+import domain.Racun;
 import java.awt.Dimension;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -195,5 +196,11 @@ public class Controller {
         SystemOperation so = new SOSetStornoBill(odo);
         so.execute();
         return so.getDomainObject();
+    }
+
+    public Racun saveBillWithItems(Racun racun) throws Exception {
+        SystemOperation so = new SOSaveBillWithItems(racun);
+        so.execute();
+        return (Racun) so.getDomainObject();
     }
 }
